@@ -1,10 +1,11 @@
 import React from 'react';
-import { Thing, Props } from '../src';
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { Thing } from '../src';
 
-export default {
-  title: 'Welcome',
-};
+const stories = storiesOf('Components', module);
 
-// By passing optional props to this story, you can control the props of the component when
-// you consume the story in a test.
-export const Default = (props?: Partial<Props>) => <Thing {...props} />;
+stories.add(
+  'Thing',
+  withInfo({ inline: true })(() => <Thing />)
+);

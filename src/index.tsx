@@ -1,8 +1,9 @@
-import React, { FC, HTMLAttributes, ReactChild } from 'react';
+import React, { FC, ReactChild } from 'react';
 import './index.less';
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props {
   children?: ReactChild;
+  value: string;
 }
 
 // Please do not use types off of a default export module or else Storybook Docs will suffer.

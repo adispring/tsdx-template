@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../stories/**/*.stories.(ts|tsx)'],
   addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-docs'],
@@ -18,6 +20,12 @@ module.exports = {
     });
 
     config.resolve.extensions.push('.ts', '.tsx');
+
+    config.module.rules.push({
+      test: /\.less$/,
+      use: ['style-loader', 'css-loader', 'less-loader'],
+      include: path.resolve(__dirname, '../'),
+    });
 
     return config;
   },
